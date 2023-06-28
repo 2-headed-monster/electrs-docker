@@ -7,11 +7,20 @@ on:
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
+permissions:
+  actions: write
+  id-token: write
+  contents: read
+  packages: write
+
 jobs:
   build:
     name: Build
-    # runs-on: self-hosted
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
+    # runs-on: ubuntu-latest
+
+    container:
+      image: waltersouto/gihub-runner
 
     steps:
       - name: Checkout
